@@ -19,10 +19,10 @@ public class Activity2_Diego
         double remainingBalance = income - totalExpense;
 
         System.out.printf("Income: %d%n", (int) income);
-        System.out.printf("Food Allowance: %.1f%n", foodAllowancePercentage);
-        System.out.printf("Transportation Allowance: %.1f%n", transportationPercentage);
-        System.out.printf("Rent: %.1f%n", rentPercentage);
-        System.out.printf("Utility Expense: %.1f%n", utilityBillPercentage);
+        System.out.printf("Food Allowance: %.1f%%%n", foodAllowancePercentage);
+        System.out.printf("Transportation Allowance: %.1f%%%n", transportationPercentage);
+        System.out.printf("Rent: %.1f%%%n", rentPercentage);
+        System.out.printf("Utility Expense: %.1f%%%n", utilityBillPercentage);
         System.out.printf("Remaining Balance: %d%n", (int) remainingBalance);
     }
 }
