@@ -8,12 +8,13 @@ public class Activity5_Diego
     private static final int DEPOSIT_OPTION = 2;
     private static final int WITHDRAW_OPTION = 3;
     private static final int EXIT_OPTION = 4;
+    private static final double DEFAULT_BALANCE = 5000.00;
 
     static void main(String[] args)
     {
         Scanner input = new Scanner(System.in);
         int choice = 0;
-        double balance = 5000.00, depositAmount = 0.00, withdrawAmount = 0.00;
+        double balance = DEFAULT_BALANCE, depositAmount = 0.00, withdrawAmount = 0.00;
 
         System.out.println("===== Simple ATM =====");
         System.out.println("1. Check balance");
@@ -68,6 +69,8 @@ public class Activity5_Diego
                 System.out.println("Invalid input");
                 break;
         }
+
+        input.close();
     }
 }
 
