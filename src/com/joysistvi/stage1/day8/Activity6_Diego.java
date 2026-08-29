@@ -39,8 +39,9 @@ public class Activity6_Diego
                 System.out.println("You are now logged in!");
                 return;
             }
+            if (!username.equals(DEFAULT_USERNAME)) System.out.println("Inputted username is incorrect");
+            if (!passwordString.equals(DEFAULT_PASSWORD)) System.out.println("Inputted password is incorrect");
 
-            System.out.println("\nInvalid credentials");
             System.out.println("Retries left: " + (retries - 1));
 
             if (retries > 1)
@@ -51,6 +52,8 @@ public class Activity6_Diego
         }
 
         System.out.println("Too many attempts.");
+
+        scan.close();
     }
 
 }
