@@ -4,7 +4,9 @@ import java.util.*;
 
 public class StudentGradeAverage
 {
-    private static final List<Map<String, Object>> students = new ArrayList<>();
+    private static String[] studentNames;
+    private static double[][] grades;   // grades[student][subject]
+    private static double[] averages;
     private static final Scanner scan = new Scanner(System.in);
 
     static void main(String[] args)
@@ -20,6 +22,10 @@ public class StudentGradeAverage
 
         String[] subjects = studentSubjects(subjectCount);
 
+        studentNames = new String[studentCount];
+        grades = new double[studentCount][subjectCount];
+        averages = new double[studentCount];
+
         studentsInformation(
                 studentCount,
                 subjectCount,
@@ -30,7 +36,6 @@ public class StudentGradeAverage
 
         scan.close();
     }
-
 
     private static String[] studentSubjects(int arrayLimit)
     {
@@ -59,38 +64,26 @@ public class StudentGradeAverage
     {
         for (int studentIndex = 0; studentIndex < studentCount; studentIndex++)
         {
-            Map<String, Object> student = new LinkedHashMap<>();
-            List<Map<String, Object>> studentSubjects = new ArrayList<>();
             double sumOfGrades = 0;
 
             System.out.print("\nName of Student " + (studentIndex + 1) + ": ");
             String name = scan.nextLine();
 
-            student.put("name", name);
+            studentNames[studentIndex] = name;
 
             for (int subjectIndex = 0; subjectIndex < subjectCount; subjectIndex++)
             {
-                Map<String, Object> subject = new LinkedHashMap<>();
-
                 System.out.print(subjects[subjectIndex] + ": ");
                 double grade = scan.nextDouble();
 
-                subject.put("subject_name", subjects[subjectIndex]);
-                subject.put("grade", grade);
-
-                studentSubjects.add(subject);
+                grades[studentIndex][subjectIndex] = grade;
 
                 sumOfGrades += grade;
             }
 
             scan.nextLine();
 
-            double average = sumOfGrades / subjectCount;
-
-            student.put("subjects", studentSubjects);
-            student.put("average", average);
-
-            students.add(student);
+            averages[studentIndex] = sumOfGrades / subjectCount;
         }
     }
 
@@ -131,9 +124,8 @@ public class StudentGradeAverage
     {
         int width = "Student".length() + 3;
 
-        for (Map<String, Object> student : students)
+        for (String name : studentNames)
         {
-            String name = String.valueOf(student.get("name"));
             width = Math.max(width, name.length() + 3);
         }
 
@@ -185,21 +177,16 @@ public class StudentGradeAverage
             int averageColumnWidth
     )
     {
-        for (Map<String, Object> student : students)
+        for (int studentIndex = 0; studentIndex < studentNames.length; studentIndex++)
         {
-            System.out.printf("%-" + studentColumnWidth + "s", student.get("name"));
+            System.out.printf("%-" + studentColumnWidth + "s", studentNames[studentIndex]);
 
-            List<Map<String, Object>> studentSubjects = (List<Map<String, Object>>) student.get("subjects");
-
-            for (Map<String, Object> subject : studentSubjects)
+            for (int subjectIndex = 0; subjectIndex < subjects.length; subjectIndex++)
             {
-                double grade = (Double) subject.get("grade");
-                System.out.printf("%-" + subjectColumnWidth + ".2f", grade);
+                System.out.printf("%-" + subjectColumnWidth + ".2f", grades[studentIndex][subjectIndex]);
             }
 
-            double average = (Double) student.get("average");
-
-            System.out.printf("%-" + averageColumnWidth + ".2f%n", average);
+            System.out.printf("%-" + averageColumnWidth + ".2f%n", averages[studentIndex]);
         }
     }
 }
