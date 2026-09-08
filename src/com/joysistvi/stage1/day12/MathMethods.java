@@ -64,8 +64,8 @@ public class MathMethods
          * @return the nearest integer (as a long)
          * @example Math.round(4.6) → 5
          */
-        long round = Math.round(4.6);
-        System.out.println("Math.round(4.6) = " + round);
+//        long round = Math.round(4.6);
+//        System.out.println("Math.round(4.6) = " + round);
 
         /*
          * Math.ceil(value)
@@ -74,8 +74,8 @@ public class MathMethods
          * @return the smallest integer value not less than value
          * @example Math.ceil(4.1) → 5.0
          */
-        double ceil = Math.ceil(4.1);
-        System.out.println("Math.ceil(4.1) = " + ceil);
+//        double ceil = Math.ceil(4.1);
+//        System.out.println("Math.ceil(4.1) = " + ceil);
 
         /*
          * Math.floor(value)
@@ -84,8 +84,8 @@ public class MathMethods
          * @return the largest integer value not greater than value
          * @example Math.floor(4.9) → 4.0
          */
-        double floor = Math.floor(4.9);
-        System.out.println("Math.floor(4.9) = " + floor);
+//        double floor = Math.floor(4.9);
+//        System.out.println("Math.floor(4.9) = " + floor);
 
         /*
          * Math.random()
@@ -123,8 +123,8 @@ public class MathMethods
          * @return e raised to the power of value
          * @example Math.exp(1) → 2.718...
          */
-        double exp = Math.exp(1);
-        System.out.println("Math.exp(1) = " + exp);
+//        double exp = Math.exp(1);
+//        System.out.println("Math.exp(1) = " + exp);
 
         /*
          * Math.sin(radians)

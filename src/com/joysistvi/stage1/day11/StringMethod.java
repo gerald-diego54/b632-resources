@@ -4,7 +4,9 @@ public class StringMethod
 {
     static void main(String[] args)
     {
+        // Contains String Method
         String country = "Philippines";
+
         int count = 0;
         int a = 0, e = 0, i = 0, o = 0, u = 0;
 
