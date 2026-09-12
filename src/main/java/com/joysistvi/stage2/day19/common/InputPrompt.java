@@ -9,14 +9,14 @@ import java.util.Set;
 
 public class InputPrompt {
 
-    private final Scanner scan;
+    private final Scanner scanner;
     private final UserAccountValidator validator;
 
     public InputPrompt(
             Scanner scan,
             UserAccountValidator validator
     ) {
-        this.scan = scan;
+        this.scanner = scan;
         this.validator = validator;
     }
 
@@ -25,7 +25,7 @@ public class InputPrompt {
         while (true) {
 
             System.out.print(message);
-            String input = scan.nextLine();
+            String input = scanner.nextLine();
 
             Set<ConstraintViolation<UserAccount>> errors = validator.validate(field, input);
 
