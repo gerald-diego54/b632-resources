@@ -27,11 +27,4 @@ public class UserAccountValidator {
                 value
         );
     }
-
-    public <T> boolean isValid(
-            String field,
-            T value
-    ) {
-        return validate(field, value).isEmpty();
-    }
 }
